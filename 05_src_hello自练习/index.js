@@ -11,4 +11,4 @@ import App from './App';
 // ReactDOM.render(<App/>,document.getElementById('root') )
 
 // react18 渲染写法
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
