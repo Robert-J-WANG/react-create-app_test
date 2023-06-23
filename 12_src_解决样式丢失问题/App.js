@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import About from './pages/About' // 路由组件About
 import Home from './pages/Home'  // 路由组件Home
+import Test from './pages/Test'  // 路由组件Test
 import Header from './components/Header'  // 一般组件Header
 import MyNavLink from './components/MyNavLink'  // 自定义组件MyNavLink
 
@@ -14,29 +15,27 @@ export default class App extends Component {
       <div>
         <div className="row">
           <div className="col-xs-offset-2 col-xs-8">
-            <Header/>
+            <Header a={1} />
           </div>
         </div>
         <div className="row">
           <div className="col-xs-2 col-xs-offset-2">
             <div className="list-group">
 
-              {/* 
-              
-              */}
-              <MyNavLink to='/about'>About</MyNavLink>
-              <MyNavLink to='/home'>Home</MyNavLink>
+              {/* path 是多级路径时，刷新页面会丢失css样式，解决方法是修改index.html引入css的path， 详见index.html*/}
+
+              <MyNavLink to='/atguigu/about'>About</MyNavLink>
+              <MyNavLink to='/atguigu/home'>Home</MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
             <div className="panel">
               <div className="panel-body">
-
+                {/* 使用Switch标签包裹，对于相同path的组件，当path第一次匹配成功后，停止继续匹配，提高效率 */}
                 <Switch>
-                  {/* Redirect 重定向， 可设置初次渲染页面时的路径 */}
-                  <Route path='/about' component={About} />
-                  <Route path='/home' component={Home} />
-                  <Redirect to='/about' />
+                  <Route path='/atguigu/about' component={About} />
+                  <Route path='/atguigu/home' component={Home} />
+                  <Route path='/home' component={Test} />
                 </Switch>
               </div>
             </div>

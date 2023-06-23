@@ -14,7 +14,7 @@ export default class App extends Component {
       <div>
         <div className="row">
           <div className="col-xs-offset-2 col-xs-8">
-            <Header/>
+            <Header a={1} />
           </div>
         </div>
         <div className="row">
