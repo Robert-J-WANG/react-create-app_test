@@ -1,46 +1,29 @@
 import React, { Component } from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import About from './pages/About' // 路由组件About
-import Home from './pages/Home'  // 路由组件Home
-import Header from './components/Header'  // 一般组件Header
-import MyNavLink from './components/MyNavLink'  // 自定义组件MyNavLink
+import { Route, Switch, Redirect } from 'react-router-dom'
+import TodoList from './component/TodoList'
+import RouterList from './component/RouterList'
+import MyNavLink from './component/MyNavLink'
 
-import './App.css'
-import { Switch } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <div className="row">
-          <div className="col-xs-offset-2 col-xs-8">
-            <Header/>
-          </div>
+      <div >
+        <div className="list-group">
+          <MyNavLink to='/todolist'> todoList</MyNavLink> <br />
+          <MyNavLink to='/routerlist'> routerList</MyNavLink>
         </div>
-        <div className="row">
-          <div className="col-xs-2 col-xs-offset-2">
-            <div className="list-group">
 
-              {/* 
-              
-              */}
-              <MyNavLink to='/about'>About</MyNavLink>
-              <MyNavLink to='/home'>Home</MyNavLink>
-            </div>
-          </div>
-          <div className="col-xs-6">
-            <div className="panel">
-              <div className="panel-body">
+        <hr />
 
-                <Switch>
-                  {/* Redirect 重定向， 可设置初次渲染页面时的路径 */}
-                  <Route path='/about' component={About} />
-                  <Route path='/home' component={Home} />
-                  <Redirect to='/about' />
-                </Switch>
-              </div>
-            </div>
-          </div>
+        <div>
+          {/* 使用Switch标签包裹，对于相同path的组件，当path第一次匹配成功后，停止继续匹配，提高效率 */}
+          <Switch>
+            <Route path='/todolist' component={TodoList} />
+            <Route path='/routerlist' component={RouterList} />
+            {/* 重定向 */}
+            <Redirect to='/routerlist' />
+          </Switch>
         </div>
       </div>
     )
