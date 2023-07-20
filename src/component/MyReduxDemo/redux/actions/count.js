@@ -2,19 +2,19 @@ import { INCREMENT, DECREMENT } from '../constant'
 
 
 //同步action
-export const createIncrementAction = (data) => ({
+export const increment = (data) => ({
     type: INCREMENT, data
 })
-export const createDecrementAction = (data) => ({
+export const decrement = (data) => ({
     type: DECREMENT, data
 })
 
 // 异步action
 
-export const createIncrementAsyncAction = (data, time) => {
+export const incrementAsync = (data, time) => {
     return (dispatch) => {
         setTimeout(() => {
-            dispatch(createIncrementAction(data));
+            dispatch(increment(data));
         }, time);
     }
 }
