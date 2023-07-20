@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import QueryString from 'query-string'
+// import QueryString from 'query-string'
 
 export default class Detail extends Component {
 

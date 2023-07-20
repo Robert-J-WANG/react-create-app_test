@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import TodoList from './component/TodoList'
 import RouterList from './component/RouterList'
 import MyNavLink from './component/MyNavLink'
+import MyReduxDemo from './component/MyReduxDemo'
 
 
 export default class App extends Component {
@@ -10,8 +11,9 @@ export default class App extends Component {
     return (
       <div >
         <div className="list-group">
-          <MyNavLink to='/todolist'> todoList</MyNavLink> <br />
-          <MyNavLink to='/routerlist'> routerList</MyNavLink>
+          <MyNavLink to='/todolist'> TodoList</MyNavLink> <br />
+          <MyNavLink to='/routerlist'> RouterList</MyNavLink><br />
+          <MyNavLink to='/reduxdemo'> MyReduxDemo</MyNavLink>
         </div>
 
         <hr />
@@ -21,6 +23,7 @@ export default class App extends Component {
           <Switch>
             <Route path='/todolist' component={TodoList} />
             <Route path='/routerlist' component={RouterList} />
+            <Route path='/reduxdemo' component={MyReduxDemo} />
             {/* 重定向 */}
             <Redirect to='/routerlist' />
           </Switch>
